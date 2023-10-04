@@ -18,14 +18,17 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(name = "nombre")
 	private String nombre;
+	@Column(name = "email")
 	private String email;
-	private String contrasena;
+	@Column(name = "contrasenia")
+	private String contrasenia;
 
 
 	public Usuario(DatosAutor autor) {
 		this.nombre = autor.nombre();
 		this.email = autor.email();
-		this.contrasena = autor.contrasenia();
+		this.contrasenia = autor.contrasenia();
 	}
 }

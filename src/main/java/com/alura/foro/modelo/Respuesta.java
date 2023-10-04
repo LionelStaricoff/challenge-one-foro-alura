@@ -20,15 +20,21 @@ public class Respuesta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(name = "mensaje")
 	private String mensaje;
-	@OneToMany(mappedBy="respuestas")
-	private Topico topico;
-	private LocalDateTime fechaCreacion = LocalDateTime.now();
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "usuario_id")
-	private Usuario autor;
+
+	@Column(name = "solucion")
 	private Boolean solucion = false;
 
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "respuesta_id")
+	private Topico topico;
+	private LocalDateTime fechaCreacion = LocalDateTime.now();
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "usuario_id")
+	private Usuario autor;
 
 
 

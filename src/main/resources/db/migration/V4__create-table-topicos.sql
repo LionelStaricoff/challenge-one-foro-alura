@@ -10,7 +10,7 @@ create table topicos(
     curso_id int not null,
     respuesta_id int not null,
 
-    primary key(topico_id),
+    primary key(id),
 
     constraint fk_topicos_usuario_id foreign key(usuario_id) references usuarios(id),
     constraint fk_topicos_curso_id foreign key(curso_id) references cursos(id),

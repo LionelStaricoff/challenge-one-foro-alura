@@ -25,19 +25,32 @@ public class Topico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(name = "titulo")
 	private String titulo;
+
+	@Column(name = "mensaje")
 	private String mensaje;
+
+	@Column(name = "fecha_creacion")
 	private LocalDateTime fechaCreacion = LocalDateTime.now();
+
 	@Enumerated(EnumType.STRING)
+	@Column(name = "status")
 	private StatusTopico status = StatusTopico.NO_RESPONDIDO;
+
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "usuario_id")
+	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	private Usuario autor;
+
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "curso_id")
+	@JoinColumn(name = "curso_id", referencedColumnName = "id")
 	private Curso curso;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "respuesta_id")
+
+
+	@OneToMany(mappedBy = "topico")
 	private List<Respuesta> respuestas = new ArrayList<>();
 
 
