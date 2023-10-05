@@ -17,7 +17,8 @@ public class TopicosController {
     private TopicoRepositori topicoRepositori;
     @PostMapping
     public void registrarTopico(@RequestBody DatosRegistrarTopicos DatosRegistrarTopicos){
-        topicoRepositori.save(new Topico(DatosRegistrarTopicos));
+
+          topicoRepositori.save(new Topico(DatosRegistrarTopicos));
 
     }
 }

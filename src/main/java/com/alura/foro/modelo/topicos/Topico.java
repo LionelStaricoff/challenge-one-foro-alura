@@ -40,17 +40,17 @@ public class Topico {
 	private StatusTopico status = StatusTopico.NO_RESPONDIDO;
 
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	private Usuario autor;
 
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "curso_id", referencedColumnName = "id")
 	private Curso curso;
 
 
-	@OneToMany(mappedBy = "topico")
+	@OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
 	private List<Respuesta> respuestas = new ArrayList<>();
 
 
