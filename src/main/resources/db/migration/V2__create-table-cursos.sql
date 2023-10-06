@@ -7,5 +7,4 @@ create table cursos(
 
     primary key(id)
 
-
 );
